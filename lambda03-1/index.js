@@ -13,7 +13,7 @@ var elasticTranscoder = new AWS.ElasticTranscoder({
 
 
 exports.handler = function(event, context, callback){
-    console.log('Welcome, this is 01_TransVideo01.');
+    console.log('Welcome, this is 01_TransVideo01 at Local.');
 
     // event에서 받아 오는 s3의 key는 저장된 파일이름으로 URL인코딩 되어있다. 사용하려면 URL디코딩 되어야 한다.
     //the input file may have spaces so replace them with '+'
@@ -44,7 +44,7 @@ exports.handler = function(event, context, callback){
             },
             {
                 Key: outputKey + '-480p169' + '.mp4',
-                PresetId: '1351620000001-000010' //Generic 480p 16:9
+                PresetId: '1351620000001-000020' //Generic 480p 16:9
             }
             /*
             {
@@ -53,11 +53,20 @@ exports.handler = function(event, context, callback){
             }
             */
         ]};
+    
+    // 단순 log
+    console.log('01_TransVideo01 : ');
+    console.log('key :' + key);
+    console.log('sourceKey :' + sourceKey);
+    console.log('outputKey :' + outputKey);
+    console.log('params.PipelineId :' + params.PipelineId);
+    console.log('params.Outputs :' + params.Outputs);
 
     elasticTranscoder.createJob(params, function(error, data){
         if (error){
             callback(error);
         }
     });
+    console.log('01_TransVideo01 : after elasticTranscoder.createJob()');
 };
 
