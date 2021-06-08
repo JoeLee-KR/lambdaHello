@@ -13,7 +13,7 @@ var elasticTranscoder = new AWS.ElasticTranscoder({
 
 
 exports.handler = function(event, context, callback){
-    console.log('Welcome');
+    console.log('Welcome, this is 01_TransVideo01.');
 
     // event에서 받아 오는 s3의 key는 저장된 파일이름으로 URL인코딩 되어있다. 사용하려면 URL디코딩 되어야 한다.
     //the input file may have spaces so replace them with '+'
@@ -60,3 +60,4 @@ exports.handler = function(event, context, callback){
         }
     });
 };
+
