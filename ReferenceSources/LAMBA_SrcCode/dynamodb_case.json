@@ -1,0 +1,54 @@
+{
+    "type": "put",
+    "data": [
+      {
+        "yyyymmdd": 20120715,
+        "title": "gangnam style",
+        "info": {
+          "singer": "psy",
+          "country": "korea"
+        }
+      }
+    ]
+  }
+
+  {
+    "type": "update",
+    "data": [
+      {
+        "yyyymmdd": 20120715,
+        "title": "gangnam style",
+        "info": {
+          "singer": "psy",
+          "country": "south korea"
+        }
+      }
+    ]
+  }
+  {
+  "type": "get",
+  "data": [
+    {
+      "yyyymmdd": 20120715,
+      "title": "gangnam style",
+      "info": {
+        "singer": "psy",
+        "country": "south korea"
+      }
+    }
+  ]
+}
+{
+    "type": "delete",
+    "data": [
+      {
+        "yyyymmdd": 20120715,
+        "title": "gangnam style",
+        "info": {
+          "singer": "psy",
+          "country": "korea"
+        }
+      }
+    ]
+  }
+  
