@@ -1,5 +1,5 @@
 {
-  "name": "transcode-video",
+  "name": "Ch03-1",
   "version": "1.0.0",
   "description": "This Lambda function(01-TransVideo01) will create a job to transcode videos uploaded to an S3 bucket",
   "main": "index.js",

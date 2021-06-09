@@ -6,14 +6,23 @@
 'use strict';
 var AWS = require('aws-sdk');
 
-// region 선택을 확인한다.
+// 사용(호출할) 서비스 자원을 준비하고, 해당 자원이 동작할 해당 region 선택을 확인한다.
 var elasticTranscoder = new AWS.ElasticTranscoder({
     region: 'ap-northeast-1'
 });
 
-
+// 이 Lambda Function의 handler:
+// event : Front에서 이 Function을 호출할때 넘어오는 Event Object 정보
+//         event로 넘어온 정보의 consistency확인도 function내부에서 해야되는 것은 당연하다. 
+//         Caller쪽에서 해도 되기는 하지만... 
+//         실제 개발이라면, 이 부분도 modulize filter가 필요해 보이기도 한다.
+// context :
+// callback : 문제 발생시 되돌려져야하는 Front의 Reference 정보
+// params : Back으로 넘겨줄 정보의 Object이다.
+//          해당 Function이 Transcode Video 서비스로 던져질 것이므로, 여기에 맞는 Object를 구성한다.
+//          PupelineId, Input, Output 정보들이 필요한 구조인 것이다.
 exports.handler = function(event, context, callback){
-    console.log('Welcome, this is 01_TransVideo01 at Local.');
+    console.log('Welcome, this is 01_TransVideo01.');
 
     // event에서 받아 오는 s3의 key는 저장된 파일이름으로 URL인코딩 되어있다. 사용하려면 URL디코딩 되어야 한다.
     //the input file may have spaces so replace them with '+'
@@ -53,14 +62,14 @@ exports.handler = function(event, context, callback){
             }
             */
         ]};
-    
-    // 단순 log
-    console.log('01_TransVideo01 : ');
-    console.log('key :' + key);
-    console.log('sourceKey :' + sourceKey);
-    console.log('outputKey :' + outputKey);
-    console.log('params.PipelineId :' + params.PipelineId);
-    console.log('params.Outputs :' + params.Outputs);
+
+   // 단순 log
+   console.log('01_TransVideo01 : ');
+   console.log('key :' + key);
+   console.log('sourceKey :' + sourceKey);
+   console.log('outputKey :' + outputKey);
+   console.log('params.PipelineId :' + params.PipelineId);
+   console.log('params.Outputs :' + params.Outputs);
 
     elasticTranscoder.createJob(params, function(error, data){
         if (error){
@@ -69,4 +78,3 @@ exports.handler = function(event, context, callback){
     });
     console.log('01_TransVideo01 : after elasticTranscoder.createJob()');
 };
-
