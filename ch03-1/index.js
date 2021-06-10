@@ -1,5 +1,5 @@
 /*
- * Step 3. 트랜스코더에게 작업 생성의뢰
+ * Step 3. (3-1) 트랜스코더에게 작업 생성의뢰
  * 사용할 트랜스코더의 파이프라인 ID를 알고 있어야 함
  */
 
@@ -69,7 +69,7 @@ exports.handler = function(event, context, callback){
    console.log('sourceKey :' + sourceKey);
    console.log('outputKey :' + outputKey);
    console.log('params.PipelineId :' + params.PipelineId);
-   console.log('params.Outputs :' + params.Outputs);
+   console.log('params.Outputs :' + params.Outputs[0]);
 
     elasticTranscoder.createJob(params, function(error, data){
         if (error){

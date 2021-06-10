@@ -27,7 +27,7 @@
           "arn":"arn:aws:s3:::doogiejoe-lambda02-video-upload"
         },
         "object":{
-          "key":"myTestVideo.mp4",
+          "key":"GIS-h1080p-20secClip.mov",
           "size":1024,
           "eTag":"",
           "sequencer": ""
