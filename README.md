@@ -1,6 +1,6 @@
 first clone
 ```
-git clone git@gitjoe-joelee-kr/lambdaHello.git
+git clone git@gitjoe:joelee-kr/lambdaHello.git
 ```
 
 push force to master
