@@ -63,14 +63,16 @@ exports.handler = function(event, context, callback){
             */
         ]};
 
-   // 단순 log
-   console.log('01_TransVideo01 : ');
-   console.log('key :' + key);
-   console.log('sourceKey :' + sourceKey);
-   console.log('outputKey :' + outputKey);
-   console.log('params.PipelineId :' + params.PipelineId);
-   console.log('params.Outputs :' + params.Outputs[0]);
+    // 단순 log
+    console.log('01_TransVideo01 : ');
+    console.log('key :' + key);
+    console.log('sourceKey :' + sourceKey);
+    console.log('outputKey :' + outputKey);
+    console.log('params.PipelineId :' + params.PipelineId);
+    console.log('params.Outputs :' + params.Outputs[0]);
 
+    // elasticTranscoder Object에 params로 내용을 지정하고, 
+    // Job creation Method를 수행한다.
     elasticTranscoder.createJob(params, function(error, data){
         if (error){
             callback(error);
