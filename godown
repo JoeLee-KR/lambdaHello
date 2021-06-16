@@ -1,1 +1,4 @@
 git pull git@gitjoe:joelee-kr/lambdaHello.git
+#
+#
+git -f -u
