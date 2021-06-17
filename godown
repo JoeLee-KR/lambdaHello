@@ -1,4 +1,4 @@
-git pull git@gitjoe:joelee-kr/lambdaHello.git
+git pull -f  git@gitjoe:joelee-kr/lambdaHello.git master
 #
 #
-git -f -u
+#git -f -u
