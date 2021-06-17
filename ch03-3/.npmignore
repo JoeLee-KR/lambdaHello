@@ -1,3 +1,4 @@
 dist
 event.json
 Gruntfile.js
+*.mov
