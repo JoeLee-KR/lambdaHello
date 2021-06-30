@@ -1,3 +1,4 @@
+
 window.userController = {
   data: {
     auth0Lock: null,
@@ -99,7 +100,7 @@ window.userController = {
         logoutButton.hide();
         profileButton.hide();
         loginButton.show();
-        auth0Lock.logout({ returnTo: "http://127.0.0.1:8200" });
+        auth0Lock.logout();
       });
 
       profileButton.click(() => {
@@ -112,3 +113,5 @@ window.userController = {
     }
   }
 };
+
+
