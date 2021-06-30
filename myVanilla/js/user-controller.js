@@ -5,7 +5,7 @@
  * Last Updated: 
  */
 
- window.userController = {
+window.userController = {
   data: {
     auth0Lock: null,
     config: null
