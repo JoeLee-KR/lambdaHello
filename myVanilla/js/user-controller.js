@@ -1,9 +1,3 @@
-/**
- * Created by yiearth
- * Serverless Architectures on AWS
- * 
- * Last Updated: 
- */
 
 window.userController = {
   data: {
@@ -43,7 +37,7 @@ window.userController = {
       if (accessToken) {
         this.configureAuthenticatedRequests();
         this.data.auth0Lock.getUserInfo(accessToken, (error, profile) => {
-          if (error) return alert("Auth0 error, cant getUserInfo: " + error.message);
+          if (error) return alert("Auth0 error: " + error.message);
           this.showUserAuthenticationDetails(profile);
         });
       }
@@ -106,7 +100,6 @@ window.userController = {
         logoutButton.hide();
         profileButton.hide();
         loginButton.show();
-        // auth0Lock.logout({ returnTo: "http://127.0.0.1:8200" });
         auth0Lock.logout();
       });
 
@@ -120,3 +113,5 @@ window.userController = {
     }
   }
 };
+
+
