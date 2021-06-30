@@ -1,0 +1,19 @@
+{
+  "name": "myvanillas",
+  "version": "1.0.0",
+  "description": "myVanillas Toy",
+  "main": "index.js",
+  "local-web-server": {
+    "port": 8000,
+    "forbid": "*.json"
+  },
+  "scripts": {
+    "start": "ws",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joe Lee",
+  "license": "MIT",
+  "devDependencies": {
+    "local-web-server": "^4.2.1"
+  }
+}
