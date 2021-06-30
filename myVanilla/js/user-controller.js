@@ -76,7 +76,7 @@ var userController = {
       that.data.auth0Lock.show(params, function(err, profile, token) {
         if (err) {
           // Error callback
-          alert('Vanillas an error' + err.messages);
+          alert('Vanillas an error:' + err.messages);
         } else {
           // Save the JWT token.
           localStorage.setItem('userToken', token);
