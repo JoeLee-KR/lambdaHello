@@ -40,6 +40,7 @@
           <a class="navbar-brand" href="#">Project name</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+          <!-- begin login btn -->
           <div class="navbar-form navbar-right">
             <button id="user-profile" class="btn btn-default">
               <img id="profilepicture" />&nbsp;<span id="profilename"></span>
@@ -48,6 +49,7 @@
             <button id="auth0-login" class="btn btn-success">Sign in</button>
             <button id="auth0-logout" class="btn btn-success">Sign Out</button>
           </div>
+          <!-- end login btn -->
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
@@ -65,17 +67,17 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Heading</h2>
+          <h2>Heading1</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
+          <h2>Heading2</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
        </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
+          <h2>Heading3</h2>
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
@@ -88,6 +90,7 @@
       </footer>
     </div> <!-- /container -->        
     
+    <!-- begin /.modal -->
     <div id="user-profile-modal" class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -107,18 +110,18 @@
       </div>
       <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal -->
+    <!-- end /.modal -->
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
     <script src="js/vendor/bootstrap.min.js"></script>
+<!-- begin Add to login -->
   <script src="https://cdn.auth0.com/js/lock-9.min.js"></script>
-
   <script src="js/user-controller.js"></script>
   <script src="js/config.js"></script>
     <script src="js/main.js"></script>
-
+<!-- end Add to login -->
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
