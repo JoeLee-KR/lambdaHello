@@ -1,5 +1,5 @@
 /**
- * Created by yiearth
+ * modified by yiearth
  * Serverless Architectures on AWS
  * https://github.com/JoeLee-KR/lambdaHello/pull/1
  * Last Updated: 6/30/2021, by yieartch : https://github.com/yiearth
