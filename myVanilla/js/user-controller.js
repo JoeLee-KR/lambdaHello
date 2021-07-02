@@ -24,9 +24,10 @@ window.userController = {
       const { uiElements } = this;
       uiElements.loginButton = $("#auth0-login");
       uiElements.logoutButton = $("#auth0-logout");
-      uiElements.profileButton = $("#user-profile");
+      uiElements.profileButton = $("#user-profile");    
       uiElements.profileNameLabel = $("#profilename");
       uiElements.profileImage = $("#profilepicture");
+      
     }
 
     {
@@ -48,7 +49,15 @@ window.userController = {
         });
       }
     }
-
+    /*
+    this.uiElements.profileButton.click(function (e) {
+      var url = that.data.config.apiBaseUrl + '/user-profile';
+  
+      $.get(url, function (data, status) {
+         alert(JSON.stringify(data));                                  
+      })
+    });
+    */
     this.wireEvents();
   },
 
