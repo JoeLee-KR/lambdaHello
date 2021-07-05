@@ -99,7 +99,7 @@ window.userController = {
         logoutButton.hide();
         profileButton.hide();
         loginButton.show();
-        auth0Lock.logout({ returnTo: "http://localhost:8100" });
+        auth0Lock.logout({ returnTo: "http://127.0.0.1:8200" });
       });
 
       profileButton.click(() => {
