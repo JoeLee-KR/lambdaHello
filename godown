@@ -1,4 +1,4 @@
-git pull -f  git@gitjoe:joelee-kr/lambdaHello.git master
+git pull -f  git@gitjoe:joelee-kr/serverless-on-aws-book.git master
 #
 #
 #git -f -u
