@@ -3,7 +3,8 @@
  * Serverless Architectures on AWS
  * http://book.acloud.guru/
  * Last Updated: Feb 11, 2017
- * Modified by Maxim Makatchev on January 7, 2018
+ * Modified by Maxim Makatchev on January 7, 2018 
+ * sdfdsfdsfdsf
  */
 
 'use strict';
@@ -18,8 +19,9 @@ exports.handler = function(event, context, callback){
     }
 
     var id_token = event.authToken.split(' ')[1];
-    var access_token = event.accessToken;
-    console.log("JOE1:", id_token, "::", access_token, "::", JSON.stringify(event), "::end");
+    var access_token = event.access_token;
+
+    console.log("JOE1:", id_token, "::", access_token, "::", event, "::", JSON.stringify(event), "::end");
 
     var body = {
         'id_token': id_token,
@@ -33,8 +35,8 @@ exports.handler = function(event, context, callback){
     };
     console.log("JOE2:", body, "::", options, "::end");
 
-    //var secretBuffer = new Buffer(process.env.AUTH0_SECRET);
-    var secretBuffer = Buffer.from(process.env.AUTH0_SECRET);
+    var secretBuffer = new Buffer(process.env.AUTH0_SECRET);
+    //var secretBuffer = Buffer.from(process.env.AUTH0_SECRET);
     jwt.verify(id_token, secretBuffer, function(err, decoded){
         if(err){
             console.log('JOE3: Failed jwt verification: ', err, 'auth: ', event.authToken);

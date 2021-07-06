@@ -1,3 +1,0 @@
-for CloudFormation Template
-
-FIN
