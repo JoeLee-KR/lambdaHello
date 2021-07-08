@@ -10,7 +10,6 @@
   "author": "Joe Lee",
   "license": "MIT",
   "dependencies": {
-    "base64url": "^3.0.1",
     "ecdsa-sig-formatter": "^1.0.11",
     "jsonwebtoken": "^8.5.1",
     "request": "^2.88.2"
