@@ -1,70 +1,69 @@
-/*
- * Step 5. (5-1) Auth0에게 user profile 정보 조회 Lambda Function
- * neo
+/**
+ * Created by Peter Sbarski
+ * Serverless Architectures on AWS
+ * http://book.acloud.guru/
+ * Last Updated: Feb 11, 2017
+ * Modified by CSDN, Auth0 new feature, Custom by Joe
  */
 
 'use strict';
 
-var request = require('request');
 var jwt = require('jsonwebtoken');
-
-exports.handler = function(event, context, callback){
-    // check values
-    console.log('JOE1:: ',  JSON.stringify(event), '::', JSON.stringify(event.authToken), '::', JSON.stringify(context), '::', process.env.DOMAIN, '::', process.env.AUTH0_SECRET, '::end::')
-    
-    if (!event.authToken) {
-      console.log('JOE2:: ', JSON.stringify(event), '::', JSON.stringify(event.authToken), '::', JSON.stringify(context), '::', process.env.DOMAIN, '::', process.env.AUTH0_SECRET, '::end::')
-    	callback('JOE2callback:: Could not find event.authToken:' + JSON.stringify(event) + '::' + JSON.stringify(event.authToken) + '::' + JSON.stringify(context)+ '::'+ process.env.DOMAIN+ '::'+ process.env.AUTH0_SECRET+ '::end::' );
-    	return;
-    }
-
-    var id_token = event.authToken.split(' ')[1];
-    var access_token = event.access_token;
-
-    // var secretBuffer = new Buffer(process.env.AUTH0_SECRET);
-    // new Buffer deprecated ?
-    var secretBuffer = new Buffer(process.env.AUTH0_SECRET);
-    var secretBuffer2 = Buffer.from(process.env.AUTH0_SECRET, 'base64');
-    // check values
-    console.log('JOE3:: ', id_token, 'Acces_token:', access_token, ':SECRET:', secretBuffer, '::', secretBuffer2, '::end::');
-
-    var body = {
-      'id_token': id_token,
-      'access_token': access_token
-    };
-
-    var options = {
-      url: 'https://'+ process.env.DOMAIN + '/userinfo',
-      method: 'GET',
-      json: true,
-      body: body
-    };
-    // check values
-    console.log('JOE4:: ', JSON.stringify(body), '::', JSON.stringify(options), "::end::" );
-
-    jwt.verify(id_token, process.env.AUTH0_SECRET, function(err, decoded){
-      // check values
-      console.log('JOE5:: ', JSON.stringify(id_token), ':SECRET:', process.env.AUTH0_SECRET, '::', JSON.stringify(decoded), '::end::');
+var request = require('request');
+var base64 = require('base64url');
  
-    	if(err){
-        // check values
-    		console.log('JOE6 Fail:: ', err, 'auth: ', event.authToken);
-    		callback('JOE6:: Authorization Failed:', err, 'auth: ', event.authToken );
-    	} else {   
-        // check values
-        console.log('JOE7::ready request with jwt : ', JSON.stringify(body), '::', JSON.stringify(options), "::" );
+exports.handler = function(event, context, callback){
+  if (!event.authToken) {
+    callback('UserProfile Error: Could not find authToken');
+    return;
+  }
 
-        request(options, function(error, response, body){
-          console.log("JOEx1: " + JSON.stringify(response));
-          if (!error && response.statusCode === 200) {
-            console.log("JOEx2: " + JSON.stringify(response));
-            callback(null, body);
-          } else {
-            callback(error);
-          }
-        });
+  var id_Token = event.authToken.split(' ')[1];
+  var access_Token = event.authToken.split(' ')[2]
+  var decoded = base64.decode(id_Token);
 
-    	} // fielse
-    }) // jwt.verify
+  console.log("JOE1: event: ", JSON.stringify(event));
+  console.log("JOE1: id_token: ", id_Token);
+  console.log("JOE1: access_token: " + access_Token);
+  console.log("JOE1: id_token Decoded: " + decoded);
 
-}; // handle
+  var pem = "-----BEGIN CERTIFICATE-----\n" + process.env.PEM + "\n-----END CERTIFICATE-----";
+
+  var body = {
+    //'id_token': id_token,
+    //'access_token': access_token
+  };
+  var options = {
+    headers: {
+      Authorization: 'Bearer ' + access_Token
+    },
+    url: 'https://'+ process.env.DOMAIN + '/userinfo',
+    method: 'POST',
+    json: true,
+    body: body
+  };
+
+  console.log("JOE2:", body, "::", options, "::end");
+  //var secretBuffer = new Buffer(process.env.AUTH0_SECRET);
+
+  jwt.verify(id_Token, pem, function(err, decoded){
+    if(err){
+      console.log('JOE3: Failed jwt verification: ', err, 'event.authToken: ', event.authToken);
+      callback('JOE3: Authorization Failed: ');
+    } else {
+      console.log('JOE4: Success jwt verification: ', id_Token, ":with options:" + JSON.stringify(options));
+    
+      request(options, function(error, response, body){
+        if (!error && response.statusCode === 200) {
+          console.log("JOEX1-response: " + JSON.stringify(response));
+          console.log("JOEX1-OK-body: " + JSON.stringify(body));
+          callback(null, body);
+        } else {
+          console.log("JOEX2-Bad-Response: " + error + "::" + JSON.stringify(response));
+          callback(error);
+        } // fi
+
+      }); // request
+    } // fi
+  }) // jwt.verify
+};

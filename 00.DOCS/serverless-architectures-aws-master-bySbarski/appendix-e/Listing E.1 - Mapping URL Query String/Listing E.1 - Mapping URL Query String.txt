@@ -1,3 +1,0 @@
-{
-     "encoding" : "$input.params('encoding')"							
-}
