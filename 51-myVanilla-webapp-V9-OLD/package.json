@@ -1,0 +1,24 @@
+{
+  "name": "myvanillas",
+  "version": "1.0.0",
+  "description": "myVanillas Toy",
+  "main": "index.js",
+  "local-web-server": {
+    "port": 8200,
+    "forbid": "*.json"
+  },
+  "scripts": {
+    "start": "ws -p 8200",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joe Lee",
+  "license": "MIT",
+  "devDependencies": {
+    "local-web-server": "^4.2.1"
+  },
+  "dependencies": {
+    "@auth0/auth0-spa-js": "^1.15.0",
+    "auth0-lock": "^11.30.3"
+  },
+  "keywords": []
+}

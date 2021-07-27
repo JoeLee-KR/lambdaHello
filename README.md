@@ -15,15 +15,5 @@ First clone
 git clone git@gitjoe:joelee-kr/lambdaHello.git
 ```
 
-Push force to master
-```
-git push -u -f git@gitjoe:joelee-kr/lambdaHello.git master
-```
-
-Pull updated, when update a change from git
-
-```
-git pull git@gitjoe:joelee-kr/serverless-on-aws-book.git
-```
 
 +==
