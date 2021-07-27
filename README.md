@@ -12,7 +12,7 @@
 First clone
 
 ```
-git clone git@gitjoe:joelee-kr/lambdaHello.git
+git clone git@gitjoe:joelee-kr/serverless-on-aws-book.git
 ```
 
 
