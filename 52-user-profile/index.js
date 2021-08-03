@@ -1,17 +1,15 @@
 /**
- * Created by Peter Sbarski
- * Serverless Architectures on AWS
- * http://book.acloud.guru/
- * Last Updated: Feb 11, 2017
  * Modified by CSDN, Auth0 new feature, Custom by Joe
  */
+
 
 'use strict';
 
 var jwt = require('jsonwebtoken');
 var request = require('request');
 var base64 = require('base64url');
- 
+
+
 exports.handler = function(event, context, callback){
   if (!event.authToken) {
     callback('UserProfile Error: Could not find authToken');

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "deploy": "aws lambda update-function-code --function-name arn:aws:lambda:ap-northeast-1:540197430709:function:02_userProfile01 --zip-file fileb://LambdaDeploy.zip",
-    "predeploy": "zip -r LambdaDeploy.zip * -x  \"*.zip\" \"*.log\" \"*.md\" \"*.mov\" "
+    "predeploy": "zip -r Lambda-Deployment.zip * -x \"node_modules*\" \"*.zip\" \"*.json\" \"*.log\" \"*.md\" "  
   },
   "author": "Joe Lee",
   "license": "MIT",

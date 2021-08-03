@@ -13,7 +13,7 @@
   },
   "author": "Joe Lee",
   "license": "MIT",
-  "dependencies": {
-    "local-web-server": "^4.2.1"
+  "devDependencies": {
+    "local-web-server": "^5.0.0"
   }
 }
