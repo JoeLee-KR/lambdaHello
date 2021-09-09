@@ -1,0 +1,26 @@
+{
+  "***comment***" : "getVideoList, Async waterfall callback test",
+  "name": "62_getVideoList",
+  "version": "1.0.0",
+  "description": "0x62_getVideoList",
+  "main": "index.js",
+  "scripts": {
+    "create": "aws lambda create-function
+      --function-naem 0x62_getVideoList
+      --handler index.handler
+      --memory-size 128 --runtime nodejs14.x --timeout 3
+      --role --role arn:aws:iam::540197430709:role/01_Lambda01_Role_LE_ETJS
+      --publish --zip-file fileb://Lambda-Development.zip
+    ",
+    "deploy": "aws lambda update-function-code 
+      --function-name arn:aws:lambda:ap-northeast-1:540197430709:function:0x62_getVideoList
+      --zip-file fileb://Lambda-Deployment.zip",
+    "precreate": "rm Lambda-Deployment.zip;zip -r Lambda-Deployment.zip * -x \"node_modules*\" \"*.zip\" \"*.json\" \"*.log\" \"*.md\" \"*.mov\" ",
+    "predeploy": "rm Lambda-Deployment.zip;zip -r Lambda-Deployment.zip * -x \"node_modules*\" \"*.zip\" \"*.json\" \"*.log\" \"*.md\" \"*.mov\" "
+  },
+  "dependencies": {
+    "aws-sdk": "latest"
+  },
+  "author": "Joe Lee",
+  "license": "BSD-2-Clause"
+}

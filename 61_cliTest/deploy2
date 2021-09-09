@@ -1,0 +1,7 @@
+aws lambda create-function \
+--function-name 0x_cliTest \
+--handler index.handler \
+--memory-size 128 --runtime nodejs4.3 \
+--timeout 3 \
+--zip-file fileb://index.zip \
+--publish

@@ -1,0 +1,8 @@
+aws lambda create-function \
+--function-name 0x_cliTest \
+--handler index.handler \
+--memory-size 128 --runtime nodejs14.x \
+--role arn:aws:iam::540197430709:role/01_Lambda01_Role_LE_ETJS \
+--timeout 3 \
+--zip-file fileb://index.zip \
+--publish
