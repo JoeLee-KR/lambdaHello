@@ -44,6 +44,10 @@ function createList(data, next) {
 }
 
 exports.handler = function(event, context, callback){
+  //console.log('## ENVIRONMENT VARIABLES: ' + serialize(process.env))
+  //console.log('## CONTEXT: ' + serialize(context))
+  //console.log('## EVENT: ' + serialize(event))
+
   async.waterfall([createBucketParams, getVideosFromBucket, createList],
     function (err, result) {
       if (err) {
