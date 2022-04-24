@@ -1,9 +1,11 @@
 ### Serverless Architecture on AWS (feat. Lambda)
 
 - 2022
+  - book2e
   - Serverless architecture on AWS 2e, 2022
 
 - 2021
+  - book1e
   - 위키북스, 2018, 피터 스바르스키, 홍성민,주성식 : https://wikibook.co.kr/serverless-architecture-on-aws/
   - (원서) Serverless Architecture on AWS, Peter Sbarski, 2017
     - github : https://github.com/sbarski/serverless-architectures-aws
