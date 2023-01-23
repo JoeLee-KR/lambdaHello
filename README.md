@@ -1,8 +1,10 @@
 ### Serverless Architecture on AWS (feat. Lambda)
+- depot은 보관용임, book으로 시작되는 것이 작업용임
 
 - 2022
   - book2e
   - Serverless architecture on AWS 2e, 2022
+  - KR은 구글 자동번역임.
 
 - 2021
   - book1e
