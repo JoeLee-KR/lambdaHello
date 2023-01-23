@@ -4,3 +4,4 @@ git add . && git commit -m $_HOST:$_MSG
 git push git@gitjoe:joelee-kr/serverless-on-aws.git
 #
 #git push -u -f git@gitjoe:joelee-kr/lambdaHello.git master
+#git push       git@gitjoe:joelee-kr/lambdaHello.git master

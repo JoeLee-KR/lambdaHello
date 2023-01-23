@@ -1,0 +1,5 @@
+git pull git@gitjoe:joelee-kr/serverless-on-aws.git 
+#
+# git pull -f  git@gitjoe:joelee-kr/serverless-on-aws.git 
+# git pull -f -u  git@gitjoe:joelee-kr/serverless-on-aws.git master
+#git -f -u
