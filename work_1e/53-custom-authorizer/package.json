@@ -1,0 +1,17 @@
+{
+  "name": "Ch05-2. Custom Authorizer",
+  "version": "1.0.0",
+  "description": "This Lambda (02_customAuth01) custom Auth Store",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "aws lambda update-function-code --function-name arn:aws:lambda:ap-northeast-1:540197430709:function:02_customAuth01 --zip-file fileb://LambdaDeploy.zip",
+    "predeploy": "zip -r LambdaDeploy.zip * -x  \"*.zip\" \"*.log\" \"*.md\" \"*.mov\" "
+  },
+  "author": "Joe Lee",
+  "license": "MIT",
+  "dependencies": {
+    "ecdsa-sig-formatter": "^1.0.11",
+    "jsonwebtoken": "^8.5.1",
+    "request": "^2.88.2"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "myvanilla",
+  "version": "1.0.0",
+  "description": "my Vanilla WebApp for Video Server Test",
+  "main": "index.js",
+  "local-web-server": {
+    "port": 8100,
+    "forbid": "*.json"
+  },
+  "scripts": {
+    "start": "ws -p 8100",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joe Lee",
+  "license": "MIT",
+  "devDependencies": {
+    "local-web-server": "^5.0.0"
+  }
+}
